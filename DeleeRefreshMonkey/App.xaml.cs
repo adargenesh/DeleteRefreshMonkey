@@ -8,7 +8,7 @@ namespace DeleeRefreshMonkey
         {
             InitializeComponent();
 
-            MainPage = new MonkeyView();
+            MainPage = new AppShell();
         }
     }
 }
