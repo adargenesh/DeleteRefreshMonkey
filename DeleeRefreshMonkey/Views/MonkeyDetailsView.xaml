@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DeleeRefreshMonkey.Views.MonkeyDetailsView"
-             Title="MonkeyDetailsView">
+             xmlns:vm="clr-namespace:ShellLesson.ViewModels"
+             x:Class="ShellLesson.Views.MonkeyntDetailsView"
+             x:DataType="vm:MonkeyDetailsViewModel"
+             Title="Monkey Details">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Grid.Row="0"
+Source="{Binding SelectedMonkey.ImageUrl}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+ Text="{Binding SelectedMonkey.Name}"/>
+            <Label Grid.Column="1" Grid.Row="0"
+ Text="{Binding SelectedMonkey.Details}" Grid.ColumnSpan="2"/>
+
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
