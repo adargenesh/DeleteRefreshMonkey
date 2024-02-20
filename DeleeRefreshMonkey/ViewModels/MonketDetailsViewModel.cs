@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShellLesson.ViewModels
+namespace DeleeRefreshMonkey.ViewModels
 {
     [QueryProperty(nameof(selectedMonkey), "selectedMonkey")]
     public class MonkeyDetailsViewModel : ViewModelBase

@@ -12,7 +12,7 @@ namespace DeleeRefreshMonkey
 
         void RegisterRoutes()
         {
-            Routing.RegisterRoute("studentDetails", typeof(MonkeyDetailsView));
+            Routing.RegisterRoute("monkeytDetails", typeof(MonkeyDetailsViewView));
 
         }
 

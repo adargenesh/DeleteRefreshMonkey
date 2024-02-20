@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DeleeRefreshMonkey.Services;
+using Microsoft.Maui.Devices.Sensors;
 
 namespace DeleeRefreshMonkey.ViewModels
 {
@@ -78,6 +79,56 @@ namespace DeleeRefreshMonkey.ViewModels
                 SelectedMonkey = null;
             }
         }
+        private ObservableCollection<Microsoft.Maui.Devices.Sensors.Location> locations;
+        public ObservableCollection<Microsoft.Maui.Devices.Sensors.Location> Locations
+
+        {
+            get
+            {
+                return this.locations;
+            }
+            set
+            {
+                this.locations = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Microsoft.Maui.Devices.Sensors.Location selectedLocation;
+        public Microsoft.Maui.Devices.Sensors.Location SelectedLocation
+        {
+            get
+            {
+                return this.selectedLocation;
+            }
+            set
+            {
+                this.selectedLocation = value;
+                OnPickerChanged();
+                OnPropertyChanged();
+            }
+        }
+
+
+        private void OnPickerChanged()
+        {
+            ReadMonkeys();
+            if (SelectedLocation != null)
+            {
+                List<Monkey> tobeRemoved = Monkeys.Where(s => s.Location != SelectedLocation.LocationName).ToList();
+                foreach (Monkey student in tobeRemoved)
+                {
+                    Monkeys.Remove(student);
+                }
+            }
+
+
+        }
+
+        private void FillMonths()
+        {
+         
+         }
 
 
         #region Refresh View
